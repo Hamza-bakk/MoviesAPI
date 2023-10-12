@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px; /* Ajout de la marge en bas */
+}
+
+
+#search-form {
+    margin: 20px 0;
+}
+
+#search-input {
+    padding: 5px;
+}
+
+button {
+    background-color: #f57c00;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.film-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Afficher 4 films par ligne */
+    gap: 20px; /* Espacement entre les films */
+    background-color: #000000;
+}
+
+.film-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #998989;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+
+.film-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.modal {
+    display: none;
+    position: fixed;footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: #333;
+        color: #000000;
+    }
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: #000000;
+    background-color: #998989;
+}
+
