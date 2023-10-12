@@ -28,16 +28,19 @@ function searchFilms() {
         fetch(apiUrl)
             .then((response) => response.json())
             .then((data) => {
+                if (currentPage === 1) {
+                    // Réinitialise la liste de films si c'est une nouvelle recherche
+                    filmList.innerHTML = "";
+                }
                 if (data.Search) {
                     data.Search.forEach((film) => {
                         createFilmCard(film);
                     });
-                    isLoading = false;
-                } else {
-                    // Aucun film trouvé, afficher un message
+                } else if (currentPage === 1) {
+                    // Affiche "Aucun film trouvé" uniquement pour la première page de résultats
                     filmList.innerHTML = "<p>Aucun film trouvé.</p>";
-                    isLoading = false;
                 }
+                isLoading = false;
             })
             .catch((error) => {
                 isLoading = false;
@@ -45,6 +48,7 @@ function searchFilms() {
             });
     }
 }
+
 
 function createFilmCard(film) {
     const filmCard = document.createElement("div");
@@ -103,7 +107,11 @@ window.addEventListener("scroll", () => {
     const documentHeight = document.documentElement.scrollHeight;
 
     if (scrollY + windowHeight >= documentHeight - 100) {
-        currentPage++;
-        searchFilms();
+        if (!isLoading) {
+            currentPage++;
+            searchFilms();
+        }
     }
 });
+
+
