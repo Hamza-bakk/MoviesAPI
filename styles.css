@@ -38,7 +38,6 @@ main {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* Afficher 4 films par ligne */
     gap: 20px; /* Espacement entre les films */
-    background-color: #000000;
 }
 
 .film-card {
